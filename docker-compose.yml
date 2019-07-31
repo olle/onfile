@@ -1,0 +1,13 @@
+version: '2'
+services:
+  'minio':
+    image: minio/minio
+    ports:
+        - "9000:9000"
+    volumes:
+        - ".var/minio:/onfile"
+    environment:
+        ## Development only!
+        - "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE"
+        - "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+    command: server /onfile
